@@ -8,6 +8,7 @@ class OrderIn(BaseModel):
     price: int = Field(ge=0)
     quantity: int = Field(gt=0)
 
+
 def create_app() -> FastAPI:
     app = FastAPI()
     store: dict[int, int] = {}
@@ -23,5 +24,5 @@ def create_app() -> FastAPI:
         if order_id not in store:
             raise HTTPException(status_code=404, detail="Not found")
         return {"id": order_id, "subtotal": store[order_id]}
-        
+
     return app

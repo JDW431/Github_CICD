@@ -8,6 +8,7 @@ from orderlab.api import create_app
 def client():
     return TestClient(create_app())
 
+
 def test_create_and_get(client):
     r = client.post("/orders", json={"price": 10000, "quantity": 2})
     assert r.status_code == 201
@@ -15,9 +16,11 @@ def test_create_and_get(client):
     g = client.get("/orders/1")
     assert g.status_code == 200
 
+
 def test_invalid_quantity(client):
     response = client.post("/orders", json={"price": 10000, "quantity": 0})
     assert response.status_code == 422
+
 
 def test_not_found(client):
     response = client.get("/orders/999")
