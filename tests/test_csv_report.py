@@ -1,5 +1,6 @@
 from orderlab.csv_report import revenue_from_csv
 
+
 def test_csv_revenue(sample_csv):
     assert revenue_from_csv(sample_csv) == 35000
 

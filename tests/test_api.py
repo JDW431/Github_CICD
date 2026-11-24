@@ -1,6 +1,8 @@
 import pytest
 from fastapi.testclient import TestClient
+
 from orderlab.api import create_app
+
 
 @pytest.fixture
 def client():

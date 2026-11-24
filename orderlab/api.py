@@ -1,6 +1,8 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
+
 from orderlab.pricing import subtotal
+
 
 class OrderIn(BaseModel):
     price: int = Field(ge=0)
